@@ -1,0 +1,42 @@
+Typescript:
+
+    | Rule                          | antfu                  | Nuxt                     |
+    |-------------------------------|------------------------|--------------------------|
+    | no-explicit-any               | off                    | error                    |
+    | no-dynamic-delete             | off                    | error                    |
+    | no-extraneous-class           | off                    | error                    |
+    | no-invalid-void-type          | off                    | error                    |
+    | no-non-null-assertion         | off                    | off                      |
+    | unified-signatures            | off                    | error                    |
+    | no-unused-vars                | off (you override)     | error (ignore _ prefix)  |
+    | no-useless-constructor        | off                    | error                    |
+    | triple-slash-reference        | off                    | error                    |
+    | ban-ts-comment                | allow-with-description | min 10 chars description |
+    | consistent-type-imports       | separate-type-imports  | type-imports             |
+    | method-signature-style        | property               | (not set)                |
+    | explicit-function-return-type | error                  | (not set)                |
+
+    Vue rules :
+
+    | Rule                       | antfu                 | Nuxt            |
+    |----------------------------|-----------------------|-----------------|
+    | multi-word-component-names | off                   | error           |
+    | no-dupe-keys               | off                   | error           |
+    | require-default-prop       | off                   | warn            |
+    | require-prop-types         | off                   | warn            |
+    | no-v-html                  | off                   | warn            |
+    | block-order                | script,template,style | (warn, default) |
+    | html-indent                | tab                   | (not set)       |
+    | html-quotes                | double                | (not set)       |
+    | brace-style                | stroustrup            | (not set)       |
+
+
+set explicit-function-return-type off for apps
+
+for all: 
+
+enable vue's no-dupe-keys, require-default-prop, require-prop-types, no-v-html
+
+set block-order to warn, and template, script, style
+
+

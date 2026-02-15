@@ -1,0 +1,17 @@
+{
+	"name": "vite-vanilla-ts",
+	"type": "module",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"lint": "eslint --max-warnings=0 ."
+	},
+	"devDependencies": {
+		"@alanscodelog/eslint-config": "workspace:*",
+		"typescript": "catalog:",
+		"vite": "catalog:"
+	}
+}
