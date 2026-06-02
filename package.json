@@ -21,9 +21,9 @@
 	"dependencies": {
 		"@eslint/js": "^9.34.0",
 		"@stylistic/eslint-plugin": "^5.3.1",
-		"@typescript-eslint/eslint-plugin": "^8.42.0",
-		"@typescript-eslint/parser": "^8.42.0",
-		"@typescript-eslint/utils": "^8.42.0",
+		"@typescript-eslint/eslint-plugin": "^8.60.1",
+		"@typescript-eslint/parser": "^8.60.1",
+		"@typescript-eslint/utils": "^8.60.1",
 		"@vue/eslint-config-typescript": "^14.6.0",
 		"eslint": "^9.34.0",
 		"eslint-import-resolver-typescript": "^4.4.4",
@@ -37,14 +37,14 @@
 	},
 	"devDependencies": {
 		"@alanscodelog/commitlint-config": "^3.1.2",
-		"@alanscodelog/semantic-release-config": "^5.0.4",
-		"@alanscodelog/tsconfigs": "^6.1.0",
-		"@commitlint/cli": "^19.8.1",
+		"@alanscodelog/semantic-release-config": "^6.0.2",
+		"@alanscodelog/tsconfigs": "^6.3.0",
+		"@commitlint/cli": "^21.0.2",
 		"@types/eslint": "^9.6.1",
-		"@types/node": "^24.3.1",
+		"@types/node": "^25.9.1",
 		"husky": "^9.1.7",
-		"semantic-release": "^24.2.7",
-		"typescript": "^5.9.2"
+		"semantic-release": "^25.0.3",
+		"typescript": "^6.0.3"
 	},
 	"author": "Alan <alanscodelog@gmail.com>",
 	"repository": "https://github.com/alanscodelog/eslint-config",
