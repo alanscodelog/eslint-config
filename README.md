@@ -1,7 +1,7 @@
-[![Build](https://github.com/alanscodelog/eslint-config/actions/workflows/build.yml/badge.svg)](https://github.com/alanscodelog/eslint-config/actions/workflows/build.yml)
-[![Release](https://github.com/alanscodelog/eslint-config/actions/workflows/release.yml/badge.svg)](https://github.com/alanscodelog/eslint-config/actions/workflows/release.yml)
-[![NPM Version (with latest tag)](https://img.shields.io/npm/v/%40alanscodelog%2Feslint-config/latest)](https://www.npmjs.com/package/@alanscodelog/eslint-config/v/latest)
-[![NPM Version (with beta tag)](https://img.shields.io/npm/v/%40alanscodelog%2Feslint-config/beta)](https://www.npmjs.com/package/@alanscodelog/eslint-config/v/beta)
+[![Release][release-src]][release-href]
+[![npm version][npm-version-src]][npm-version-href]
+[![npm version (beta)][npm-version-beta-src]][npm-version-beta-href]
+[![License][license-src]][license-href]
 
 My preferred base eslint configs along with an "install" script for quickly setting up the configs to extend from this one.
 
@@ -68,10 +68,21 @@ Add linting script to `package.json`:
 ```
 # Configs
 
-There's 4 configs: base, js, typescript, vue.
+## Notes
 
 Each sets it's rules with the file types they can apply to. So the base example applies to all, and it gets more selective as we go all the way up to vue.
 
 # Other
 
 All rules are set to warn since I don't like the editor bleeding red. I pass `--max-warnings=0` to eslint when needed instead. Personally, a rule is either useful (in general, I might still ignore them) and code should pass all lints, or it's not and the rule should be disabled.
+
+<!-- Badges -->
+[release-src]: https://github.com/alanscodelog/eslint-config/actions/workflows/release.yml/badge.svg
+[release-href]: https://github.com/alanscodelog/eslint-config/actions/workflows/release.yml
+[npm-version-src]: https://img.shields.io/npm/v/@alanscodelog/eslint-config/latest
+[npm-version-href]: https://www.npmjs.com/package/@alanscodelog/eslint-config/v/latest
+[npm-version-beta-src]: https://img.shields.io/npm/v/@alanscodelog/eslint-config/beta
+[npm-version-beta-href]: https://www.npmjs.com/package/@alanscodelog/eslint-config/v/beta
+[license-src]: https://img.shields.io/npm/l/@alanscodelog/eslint-config.svg?style=flat&colorA=020420&colorB=00DC82
+[license-href]: https://npmjs.com/package/@alanscodelog/eslint-config
+
