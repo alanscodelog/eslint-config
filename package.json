@@ -4,6 +4,7 @@
 	"description": "My eslint config.",
 	"main": "./config.js",
 	"type": "module",
+	"packageManager": "pnpm@11.5.0",
 	"exports": {
 		".": "./config.js"
 	},

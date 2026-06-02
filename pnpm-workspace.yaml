@@ -1,0 +1,3 @@
+allowBuilds:
+  '@alanscodelog/tsconfigs': false
+  unrs-resolver: false
