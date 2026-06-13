@@ -1,6 +1,6 @@
 {
 	"name": "@alanscodelog/eslint-config",
-	"version": "6.3.2",
+	"version": "7.0.0-beta.1",
 	"description": "My eslint config.",
 	"type": "module",
 	"packageManager": "pnpm@11.5.0",
