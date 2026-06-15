@@ -25,8 +25,11 @@ jobs:
 
       - name: Setup
         uses: alanscodelog/actions/.github/actions/setup@master
+
+      - name: Build
+        uses: alanscodelog/actions/.github/actions/build@master
         with:
-          USE_LOCKFILE: ${{ vars.USE_LOCKFILE }}
+          report_coverage: "false"
 
       - name: Release
         uses: alanscodelog/actions/.github/actions/release@master

@@ -1,5 +1,5 @@
 {
-	"name": "nuxt-module",
+	"name": "my-module",
 	"type": "module",
 	"version": "1.0.0",
 	"description": "My new Nuxt module",
