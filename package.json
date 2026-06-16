@@ -53,6 +53,7 @@
 	"repository": "github:alanscodelog/eslint-config",
 	"license": "MIT",
 	"files": [
+		"dist",
 		"src"
 	],
 	"release": {
