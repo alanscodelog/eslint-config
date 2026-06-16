@@ -277,6 +277,11 @@ export async function createConfig(
 				}
 			: {}),
 		"e18e/prefer-static-regex": "off",
+		"jsonc/sort-keys": "off",
+		"style/operator-linebreak": "off",
+		"style/arrow-parens": "off",
+		"antfu/if-newline": "off",
+		"one-var": ["warn", "never"],
 	},
 	)
 
