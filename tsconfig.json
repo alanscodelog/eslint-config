@@ -4,19 +4,17 @@
 	// https://github.com/AlansCodeLog/tsconfigs
 	"extends": "@alanscodelog/tsconfigs",
 	"compilerOptions": {
+		"rootDir": "./src",
+		"noEmit": false,
 		"strictNullChecks": true,
-		"checkJs": true,
-		"allowJs": true,
+		"declaration": true,
+		"declarationMap": true,
+		"outDir": "./dist",
+		"skipLibCheck": true,
+		"types": ["node"]
 	},
 	// the libs are explicitly specified because otherwise typescript includes the dom by default
-	"lib": [
-		"esnext",
-	],
-	"include": [
-		"*.js",
-		"tests/**/*",
-		"src/**/*",
-		"rules/**/*",
-		"copy/**/*",
-	],
+	"lib": ["esnext"],
+	"include": ["src/**/*"],
+	"exclude": ["tests/**", "node_modules"]
 }

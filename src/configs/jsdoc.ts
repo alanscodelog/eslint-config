@@ -1,0 +1,43 @@
+import type { Linter } from "eslint"
+import type { ResolvedOptions } from "../options.js"
+
+export function jsdoc(opts: ResolvedOptions): Linter.Config[] {
+	return [
+		{
+			name: "alan/jsdoc",
+			files: opts.globs.ts,
+			settings: {
+				jsdoc: {
+					mode: "typescript",
+					maxLines: 0
+				}
+			},
+			rules: {
+				"jsdoc/check-access": "warn",
+				"jsdoc/check-alignment": "warn",
+				"jsdoc/check-param-names": "warn",
+				"jsdoc/check-property-names": "warn",
+				"jsdoc/check-tag-names": [ "warn",
+					{
+						definedTags: [
+							"vue-ignore",
+							"experimental"
+						]
+					}
+				],
+				"jsdoc/check-types": "warn",
+				"jsdoc/empty-tags": "warn",
+				"jsdoc/implements-on-classes": "warn",
+				"jsdoc/multiline-blocks": "warn",
+				"jsdoc/no-defaults": "warn",
+				"jsdoc/no-multi-asterisks": "warn",
+				"jsdoc/require-param-name": "warn",
+				"jsdoc/require-property": "warn",
+				"jsdoc/require-property-description": "warn",
+				"jsdoc/require-property-name": "warn",
+				"jsdoc/require-returns-check": "warn",
+				"jsdoc/require-yields-check": "warn"
+			} as unknown as Linter.RulesRecord
+		}
+	]
+}
