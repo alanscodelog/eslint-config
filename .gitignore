@@ -1,8 +1,6 @@
 **/*.log*
-*lock*
 .vscode
 node_modules
 
-# only used to quickly test locally
-src
+dist
 .npmrc

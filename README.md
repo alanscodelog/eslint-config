@@ -3,7 +3,7 @@
 [![npm version (beta)][npm-version-beta-src]][npm-version-beta-href]
 [![License][license-src]][license-href]
 
-My preferred base eslint configs along with an "install" script for quickly setting up the configs to extend from this one.
+My preferred flat eslint config. With auto-detection for Nuxt and oxlint, and configurable vue support.
 
 # Install
 
@@ -11,46 +11,52 @@ My preferred base eslint configs along with an "install" script for quickly sett
 npm add -D @alanscodelog/eslint-config eslint
 ```
 
-Run the install script (this will overwrite `eslint.config.js`).
-```bash
-./node_modules/@alanscodelog/eslint-config/install.sh
-```
-
 ## Manual Config Setup
 
 Simple:
 ```js
 // eslint.config.js
-import config from "@alanscodelog/eslint-config"
-export default config
+import { createConfig } from "@alanscodelog/eslint-config"
+export default await createConfig()
 ```
 
 Advanced:
 ```js
-import { allFileTypes, tsEslintConfig, vueConfig } from "@alanscodelog/eslint-config"
-export default tsEslintConfig( // this is just a re-export of tsEslint.config
-	// https://github.com/AlansCodeLog/eslint-config
-	...vueConfig,
+import { allowDefaultProjectGlobs, createConfig } from "@alanscodelog/eslint-config"
+export default await createConfig(
 	{
-		files: [`**/*.{${allFileTypes.join(",")}}`],
-		// rules: ...
-	}
-	{
-		ignores: [
-			// ...	
-		],
-		languageOptions: {
-			parserOptions: {
-				projectService: {
-					// defaultProject: "./tsconfig.eslint.json",
-				}
-			}
+		// lib or app, defaults to lib
+		type: "app",
+		// auto-set when nuxt.config.ts/js exists at the root
+		isNuxt: true,
+		// auto-set when src/module.ts exists 
+		// (and nuxt.config.ts does **not** exist at the root)
+		isNuxtModule: true,
+		// auto-set when .oxlintrc.json exists
+		//	a string loads another config path, false force disables
+		useOxlint: true,
+		// auto-set if isNuxt or isNuxtModule, otherwise set manually
+		vue: true,
+		// files allowed by the typescript project service
+		allowDefaultProject: [...allowDefaultProjectGlobs],
+		// merged with defuArrayFn
+		globs: {
+			ts: defaults => defaults.filter(glob => !glob.includes(".tsx")),
+			js: ["**/*.custom.js"],
+			test: ["**/spec/**"]
 		},
+		// (NuxtESLintConfigOptions["dirs"])
+		nuxtDirs: {
+			pages: ["pages"],
+			layouts: ["layouts"],
+			components: ["components"]
+		}
 	},
-	// RULE LINKS
-	// Eslint: https://eslint.org/docs/rules/
-	// Typescript: https://typescript-eslint.io/rules/
-	// Vue: https://eslint.vuejs.org/rules/
+	pipeline => {
+		pipeline.overrideRules({
+			// override rules here
+		})
+	}
 )
 ```
 ## package.json
@@ -59,23 +65,16 @@ Add linting script to `package.json`:
 ```jsonc
 {
 	"scripts": {
-		// bin only if it has scripts, not for "dist" folder of cli
 		// double quotes escaped to avoid shell expanding globs which causes problems
 		// *.{cjs,js,ts} so configs at root will be linted
-		"lint:eslint": "eslint \"{src,tests,bin}/**/*.{cjs,js,ts}\" \"*.{cjs,js,ts}\" --max-warnings=0 --report-unused-disable-directives",
+		// common dir configurations:
+		// - lib: src,tests,scripts
+		// - Nuxt app: .
+		// - Nuxt module: src,playground,test,tests,scripts
+		"lint:eslint": "eslint \"{src,tests,<insert other needed dirs>}/**/*.{cjs,js,ts,vue}\" \"*.{cjs,js,ts}\" --max-warnings=0 --report-unused-disable-directives",
 	}
 }
 ```
-# Configs
-
-## Notes
-
-Each sets it's rules with the file types they can apply to. So the base example applies to all, and it gets more selective as we go all the way up to vue.
-
-# Other
-
-All rules are set to warn since I don't like the editor bleeding red. I pass `--max-warnings=0` to eslint when needed instead. Personally, a rule is either useful (in general, I might still ignore them) and code should pass all lints, or it's not and the rule should be disabled.
-
 <!-- Badges -->
 [release-src]: https://github.com/alanscodelog/eslint-config/actions/workflows/release.yml/badge.svg
 [release-href]: https://github.com/alanscodelog/eslint-config/actions/workflows/release.yml
