@@ -229,7 +229,10 @@ export function core(opts: ResolvedOptions): Linter.Config[] {
 					}
 				],
 				"one-var": [ "warn",
-					"never"
+					{
+						var: "never",
+						const: "never"
+					}
 				],
 				"prefer-arrow-callback": [ "warn",
 					{
