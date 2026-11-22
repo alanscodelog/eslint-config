@@ -80,7 +80,10 @@ const deltas = {
 		"kebab-case"
 	],
 	"vue/component-name-in-template-casing": [ "error",
-		"PascalCase"
+		"PascalCase",
+		{
+			ignores: ["/^i-/"]
+		}
 	],
 	"vue/component-options-name-casing": [ "error",
 		"PascalCase"
