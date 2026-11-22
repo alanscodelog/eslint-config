@@ -1,6 +1,11 @@
 import type { Linter } from "eslint"
 import type { ResolvedOptions } from "../options.js"
 
+export const jsdocDefinedTags = [
+	"vue-ignore",
+	"experimental"
+]
+
 export function jsdoc(opts: ResolvedOptions): Linter.Config[] {
 	return [
 		{
@@ -19,10 +24,7 @@ export function jsdoc(opts: ResolvedOptions): Linter.Config[] {
 				"jsdoc/check-property-names": "warn",
 				"jsdoc/check-tag-names": [ "warn",
 					{
-						definedTags: [
-							"vue-ignore",
-							"experimental"
-						]
+						definedTags: jsdocDefinedTags
 					}
 				],
 				"jsdoc/check-types": "warn",

@@ -10,7 +10,7 @@ import { e18e } from "./configs/e18e.js"
 import { eslintComments } from "./configs/eslintComments.js"
 import { ignores } from "./configs/ignores.js"
 import { imports } from "./configs/imports.js"
-import { jsdoc } from "./configs/jsdoc.js"
+import { jsdoc, jsdocDefinedTags } from "./configs/jsdoc.js"
 import { json } from "./configs/json.js"
 import { node } from "./configs/node.js"
 import { nuxt } from "./configs/nuxt.js"
@@ -28,7 +28,7 @@ import type { ConfigOptions, GlobsConfig, ResolvedGlobs } from "./options.js"
 import { plugins } from "./plugins.js"
 
 export type { ConfigOptions, GlobsConfig, ResolvedGlobs }
-export { allowDefaultProjectGlobs, defaultGlobs }
+export { allowDefaultProjectGlobs, defaultGlobs, jsdocDefinedTags }
 
 export async function createConfig(
 	options: ConfigOptions = {},
