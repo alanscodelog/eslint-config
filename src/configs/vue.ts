@@ -36,7 +36,30 @@ const deltas = {
 	"vue/attribute-hyphenation": [ "warn",
 		"always"
 	],
-	"vue/attributes-order": "warn",
+	"vue/attributes-order": [ "warn",
+		{
+			order: [
+				"DEFINITION",
+				"LIST_RENDERING",
+				"CONDITIONALS",
+				"RENDER_MODIFIERS",
+				"GLOBAL",
+				[
+					"UNIQUE",
+					"SLOT"
+				],
+				"TWO_WAY_BINDING",
+				"OTHER_DIRECTIVES",
+				[
+					"ATTR_STATIC",
+					"ATTR_SHORTHAND_BOOL"
+				],
+				"ATTR_DYNAMIC",
+				"EVENTS",
+				"CONTENT"
+			]
+		}
+	],
 	"vue/block-order": [ "warn",
 		{
 			order: [
