@@ -1,7 +1,7 @@
-import { createConfig } from "@alanscodelog/eslint-config"
+import { allowDefaultProjectGlobs, createConfig } from "@alanscodelog/eslint-config"
 
 export default createConfig({
-	allowDefaultProject: ["*.js", "*.cjs", "*.mjs"],
+	allowDefaultProject: allowDefaultProjectGlobs.filter(glob => glob !== "*.ts"),
 	vue: true,
 	type: "app"
 })
