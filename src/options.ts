@@ -82,12 +82,8 @@ function isFile(target: string) {
 
 export function resolveOptions(options: ConfigOptions = {}) {
 	const rootPath = process.cwd()
-	const hasNuxtConfig = NUXT_CONFIG_EXTENSIONS.some(ext =>
-		fs.existsSync(path.join(rootPath, `nuxt.config.${ext}`))
-	)
-	const hasPlaygroundNuxtConfig = NUXT_CONFIG_EXTENSIONS.some(ext =>
-		fs.existsSync(path.join(rootPath, "playground", `nuxt.config.${ext}`))
-	)
+	const hasNuxtConfig = NUXT_CONFIG_EXTENSIONS.some(ext => fs.existsSync(path.join(rootPath, `nuxt.config.${ext}`)))
+	const hasPlaygroundNuxtConfig = NUXT_CONFIG_EXTENSIONS.some(ext => fs.existsSync(path.join(rootPath, "playground", `nuxt.config.${ext}`)))
 	const defaultOxlintPath = path.join(rootPath, ".oxlintrc.json")
 
 	const looksLikeModule = !hasNuxtConfig && isFile(path.join(rootPath, "src/module.ts"))
