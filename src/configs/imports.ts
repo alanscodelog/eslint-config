@@ -1,6 +1,59 @@
 import type { Linter } from "eslint"
 import type { ResolvedOptions } from "../options.js"
 
+const sortImportsOptions = {
+	groups: [
+		"side-effect",
+		"packages",
+		"sibling",
+		"aliases",
+		"relative",
+		"unknown"
+	],
+	customGroups: [
+		{
+			groupName: "packages",
+			elementNamePattern: "^@?\\w"
+		},
+		{
+			groupName: "sibling",
+			elementNamePattern: "^\\."
+		},
+		{
+			groupName: "aliases",
+			elementNamePattern: "^[^.]"
+		},
+		{
+			groupName: "relative",
+			elementNamePattern: "^\\../"
+		}
+	],
+	newlinesBetween: "ignore",
+	newlinesInside: "ignore",
+	order: "asc",
+	type: "natural"
+}
+
+const nuxtSortImportsOptions = {
+	...sortImportsOptions,
+	groups: [
+		"side-effect",
+		"packages",
+		"external",
+		"sibling",
+		"aliases",
+		"relative",
+		"unknown"
+	],
+	customGroups: [
+		{
+			groupName: "external",
+			elementNamePattern: ["^#imports$", "^#app$"]
+		},
+		...sortImportsOptions.customGroups
+	]
+}
+
 const tableRules = {
 	"import-x/default": "error",
 	"import-x/export": "error",
@@ -34,38 +87,7 @@ const tableRules = {
 		}
 	],
 	"perfectionist/sort-imports": [ "warn",
-		{
-			groups: [
-				"side-effect",
-				"packages",
-				"sibling",
-				"aliases",
-				"relative",
-				"unknown"
-			],
-			customGroups: [
-				{
-					groupName: "packages",
-					elementNamePattern: "^@?\\w"
-				},
-				{
-					groupName: "sibling",
-					elementNamePattern: "^\\."
-				},
-				{
-					groupName: "aliases",
-					elementNamePattern: "^[^.]"
-				},
-				{
-					groupName: "relative",
-					elementNamePattern: "^\\../"
-				}
-			],
-			newlinesBetween: "ignore",
-			newlinesInside: "ignore",
-			order: "asc",
-			type: "natural"
-		}
+		sortImportsOptions
 	],
 	"perfectionist/sort-named-exports": [ "warn",
 		{
@@ -78,6 +100,13 @@ const tableRules = {
 			order: "asc",
 			type: "natural"
 		}
+	]
+} as unknown as Linter.RulesRecord
+
+const nuxtTableRules = {
+	...tableRules,
+	"perfectionist/sort-imports": [ "warn",
+		nuxtSortImportsOptions
 	]
 } as unknown as Linter.RulesRecord
 
@@ -138,7 +167,7 @@ export function imports(opts: ResolvedOptions): Linter.Config[] {
 				}
 			}
 		},
-		rules: tableRules
+		rules: opts.isNuxtProject ? nuxtTableRules : tableRules
 	}
 	if (opts.isNuxtProject) return [shared]
 	return [
