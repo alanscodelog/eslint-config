@@ -1,0 +1,1 @@
+- Keep the TypeScript packaging in sync with the installed `@typescript-eslint/parser`: peer dependency range matches, dev dependency stays, runtime dependency stays absent.

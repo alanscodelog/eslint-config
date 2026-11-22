@@ -52,7 +52,6 @@
 		"eslint-processor-vue-blocks": "catalog:",
 		"globals": "catalog:",
 		"jsonc-eslint-parser": "catalog:",
-		"typescript": "catalog:",
 		"vue-eslint-parser": "catalog:",
 		"yaml-eslint-parser": "catalog:"
 	},
@@ -90,7 +89,8 @@
 		"node": ">=20.0.0"
 	},
 	"peerDependencies": {
-		"eslint": "catalog:"
+		"eslint": "catalog:",
+		"typescript": ">=4.8.4 <6.1.0"
 	},
 	"publishConfig": {
 		"access": "public"
