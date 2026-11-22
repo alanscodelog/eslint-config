@@ -256,11 +256,7 @@ export function stylistic(opts: ResolvedOptions): Linter.Config[] {
 				],
 				"@stylistic/no-whitespace-before-property": "warn",
 				"@stylistic/object-curly-spacing": [ "warn",
-					"always",
-					{
-						objectsInObjects: true,
-						arraysInObjects: false
-					}
+					"always"
 				],
 				"@stylistic/padded-blocks": [ "warn",
 					{
