@@ -354,7 +354,6 @@ export function stylistic(opts: ResolvedOptions): Linter.Config[] {
 				"@stylistic/type-annotation-spacing": [ "warn",
 					{}
 				],
-				"@stylistic/type-generic-spacing": "warn",
 				"@stylistic/type-named-tuple-spacing": "warn",
 				"@stylistic/wrap-iife": [ "warn",
 					"inside",
