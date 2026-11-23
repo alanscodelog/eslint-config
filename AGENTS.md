@@ -1,1 +1,2 @@
 - Keep the TypeScript packaging in sync with the installed `@typescript-eslint/parser`: peer dependency range matches, dev dependency stays, runtime dependency stays absent.
+- When asked to disable a rule here, read [`.skills/eslint-rule-off-check/SKILL.md`](./.skills/eslint-rule-off-check/SKILL.md) and follow its effective-config check before editing.
