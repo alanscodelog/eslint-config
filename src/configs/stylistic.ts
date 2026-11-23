@@ -56,7 +56,7 @@ export function stylistic(opts: ResolvedOptions): Linter.Config[] {
 					"always"
 				],
 				"@stylistic/function-paren-newline": [ "warn",
-					"multiline"
+					"consistent"
 				],
 				"@stylistic/generator-star-spacing": [ "warn",
 					{
