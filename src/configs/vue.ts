@@ -100,7 +100,7 @@ const deltas = {
 	],
 	"vue/comment-directive": "error",
 	"vue/component-definition-name-casing": [ "warn",
-		"kebab-case"
+		"PascalCase"
 	],
 	"vue/component-name-in-template-casing": [ "error",
 		"PascalCase",
