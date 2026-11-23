@@ -71,7 +71,13 @@ export function stylistic(opts: ResolvedOptions): Linter.Config[] {
 						flatTernaryExpressions: false,
 						ignoredNodes: [
 							"TSUnionType",
-							"TSIntersectionType"
+							"TSIntersectionType",
+							// fixes bug in typescript-eslint
+							"TSTypeParameterInstantiation",
+							// allows us to indent generics nicely
+							"TSTypeParameter",
+							// allows first line of if to be indented
+							"BinaryExpression"
 						],
 						offsetTernaryExpressions: true,
 						ArrayExpression: 1,
