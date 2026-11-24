@@ -69,7 +69,7 @@ export function core(opts: ResolvedOptions): Linter.Config[] {
 				"no-duplicate-case": "error",
 				"no-empty": [ "warn",
 					{
-						allowEmptyCatch: true
+						allowEmptyCatch: false
 					}
 				],
 				"no-empty-pattern": [ "error",
