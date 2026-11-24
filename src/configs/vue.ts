@@ -4,7 +4,7 @@ import { mergeProcessors } from "eslint-merge-processors"
 import vuePlugin from "eslint-plugin-vue"
 import processorVueBlocks from "eslint-processor-vue-blocks"
 import * as vueParser from "vue-eslint-parser"
-import type { ResolvedOptions } from "../options.js"
+import type { ResolvedOptions } from "../types.js"
 
 const vueGlobals = {
 	computed: "readonly",

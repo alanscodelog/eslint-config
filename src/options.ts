@@ -1,7 +1,7 @@
 import { defuArrayFn } from "defu"
-import type { Defu } from "defu"
 import fs from "node:fs"
 import path from "node:path"
+import type { ConfigOptions, GlobsConfig, ResolvedBaseGlobs, ResolvedGlobs } from "./types.js"
 
 export const allowDefaultProjectGlobs = [
 	"*.js",
@@ -25,16 +25,6 @@ const NUXT_CONFIG_EXTENSIONS = [
 	"mtsx"
 ]
 
-export interface GlobsConfig {
-	ts?: string[]
-	js?: string[]
-	vue?: string[]
-	json?: string[]
-	yaml?: string[]
-	stories?: string[]
-	test?: string[]
-}
-
 export const defaultGlobs = {
 	ts: ["**/*.{ts,tsx,cts,mts}"],
 	js: ["**/*.{js,cjs,mjs,jsx}"],
@@ -49,28 +39,6 @@ export const defaultGlobs = {
 		"**/*.spec.*"
 	]
 } satisfies GlobsConfig
-
-type ResolvedBaseGlobs = Defu<GlobsConfig, [typeof defaultGlobs]>
-
-export type ResolvedGlobs = ResolvedBaseGlobs & {
-	tsJsVue: string[]
-	tsVue: string[]
-}
-
-export interface ConfigOptions {
-	type?: "lib" | "app"
-	isNuxt?: boolean
-	isNuxtModule?: boolean
-	useOxlint?: boolean | string
-	vue?: boolean
-	allowDefaultProject?: string[]
-	nuxtDirs?: {
-		pages?: string[]
-		layouts?: string[]
-		components?: string[]
-	}
-	globs?: GlobsConfig
-}
 
 function isFile(target: string) {
 	try {
@@ -128,5 +96,3 @@ export function resolveOptions(options: ConfigOptions = {}) {
 
 	return { rootPath, type, isNuxt, isNuxtModule, isNuxtProject: isNuxt || isNuxtModule, hasPlaygroundNuxtConfig, useOxlint, vue, allowDefaultProject, nuxtDirs, oxlintConfigPath, globs }
 }
-
-export type ResolvedOptions = ReturnType<typeof resolveOptions>

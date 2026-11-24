@@ -1,6 +1,6 @@
 import type { Linter } from "eslint"
 import { configs as pnpmConfigs } from "eslint-plugin-pnpm"
-import type { ResolvedOptions } from "../options.js"
+import type { ResolvedOptions } from "../types.js"
 
 const deltas = {
 	"pnpm/json-enforce-catalog": [ "warn",

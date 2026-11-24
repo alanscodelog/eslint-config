@@ -1,7 +1,7 @@
 import tsPlugin from "@typescript-eslint/eslint-plugin"
 import tsParser from "@typescript-eslint/parser"
 import type { Linter } from "eslint"
-import type { ResolvedOptions } from "../options.js"
+import type { ResolvedOptions } from "../types.js"
 
 const allowAnyUnderscores = {
 	leadingUnderscore: "allowSingleOrDouble",

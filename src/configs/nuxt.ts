@@ -1,7 +1,7 @@
 import type { Linter } from "eslint"
 import fs from "node:fs"
 import path, { posix } from "node:path"
-import type { ResolvedOptions } from "../options.js"
+import type { GeneratedModule, NuxtDirs, ResolvedOptions } from "../types.js"
 
 /*
  We do not use Nuxt's generated ESLint configs directly because they own
@@ -14,21 +14,10 @@ import type { ResolvedOptions } from "../options.js"
  https://github.com/nuxt/eslint/blob/v1.17.0/packages/eslint-config/src/configs/disables.ts#L7-L41
  https://github.com/nuxt/eslint/blob/v1.17.0/packages/eslint-config/src/configs/nuxt.ts#L8-L98
 */
-type NuxtDirs = Partial<Record<
-	"pages" | "layouts" | "components",
-	string[]
->>
-
 const NUXT_EXTS = "{js,ts,jsx,tsx,vue}"
 const NESTED_GLOB = `**/*.${NUXT_EXTS}`
 const NUXT_DIR_KEYS = ["pages", "layouts", "components"] as const
 const RUNTIME_DIR_KEYS = NUXT_DIR_KEYS
-
-type GeneratedModule = {
-	default?: () => unknown
-	configs?: unknown
-	options?: { dirs?: NuxtDirs }
-}
 
 async function readGeneratedConfig(file: string, prefix: string) {
 	if (!fs.existsSync(file)) {

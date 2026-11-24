@@ -1,7 +1,7 @@
 import type { Linter } from "eslint"
 import { configs as jsoncConfigs } from "eslint-plugin-jsonc"
 import * as jsoncParser from "jsonc-eslint-parser"
-import type { ResolvedOptions } from "../options.js"
+import type { ResolvedOptions } from "../types.js"
 
 const deltas = {
 	"@stylistic/eol-last": [ "warn",

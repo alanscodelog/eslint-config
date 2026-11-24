@@ -25,8 +25,8 @@ import { unusedImports } from "./configs/unusedImports.js"
 import { vue } from "./configs/vue.js"
 import { yaml } from "./configs/yaml.js"
 import { allowDefaultProjectGlobs, defaultGlobs, resolveOptions } from "./options.js"
-import type { ConfigOptions, GlobsConfig, ResolvedGlobs } from "./options.js"
 import { plugins } from "./plugins.js"
+import type { ConfigOptions, GlobsConfig, ResolvedGlobs } from "./types.js"
 
 export type { ConfigOptions, GlobsConfig, ResolvedGlobs }
 export { allowDefaultProjectGlobs, defaultGlobs, jsdocDefinedTags }

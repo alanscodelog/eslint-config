@@ -1,5 +1,5 @@
 import type { Linter } from "eslint"
-import type { ResolvedOptions } from "../options.js"
+import type { ResolvedOptions } from "../types.js"
 
 export function ignores(_opts: ResolvedOptions): Linter.Config[] {
 	return [
