@@ -16,7 +16,7 @@ export function e18e(opts: ResolvedOptions): Linter.Config[] {
 				"e18e/prefer-object-has-own": "warn",
 				"e18e/prefer-regex-test": "warn",
 				"e18e/prefer-url-canparse": "warn"
-			} as unknown as Linter.RulesRecord
+			}
 		}
 	]
 }

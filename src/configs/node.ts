@@ -18,7 +18,7 @@ export function node(opts: ResolvedOptions): Linter.Config[] {
 					"never"
 				],
 				"node/process-exit-as-throw": "error"
-			} as unknown as Linter.RulesRecord
+			}
 		}
 	]
 }

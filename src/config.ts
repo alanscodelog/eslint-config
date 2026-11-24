@@ -61,7 +61,7 @@ export async function createConfig(
 		...json(opts),
 		...yaml(opts),
 		...(opts.useOxlint ? await oxlint.buildFromConfigFile(opts.oxlintConfigPath) : [])
-	] as unknown as Linter.Config[]
+	]
 	const pipeline = composer(...blocks)
 	if (extendCb) extendCb(pipeline)
 	return pipeline

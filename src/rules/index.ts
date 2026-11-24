@@ -1,8 +1,10 @@
-import type { ESLint } from "eslint"
+import type { TSESLint } from "@typescript-eslint/utils"
 import { noAiCommentPrefix } from "./no-ai-comment-prefix.js"
+import { noAnyUnknownAssertion } from "./no-any-unknown-assertion.js"
 
 export const localRules = {
 	rules: {
-		"no-ai-comment-prefix": noAiCommentPrefix
+		"no-ai-comment-prefix": noAiCommentPrefix,
+		"no-any-unknown-assertion": noAnyUnknownAssertion
 	}
-} satisfies ESLint.Plugin
+} satisfies TSESLint.FlatConfig.Plugin

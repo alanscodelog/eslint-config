@@ -353,11 +353,11 @@ const deltas = {
 	"vue/valid-v-show": "error",
 	"vue/valid-v-slot": "error",
 	"vue/valid-v-text": "error"
-} as unknown as Linter.RulesRecord
+} satisfies Linter.RulesRecord
 
 export function vue(opts: ResolvedOptions): Linter.Config[] {
-	const recommended = vuePlugin.configs["flat/recommended"] as unknown as Linter.Config[]
-	const base = (vuePlugin.configs["flat/base"] as unknown as Linter.Config[])[0]
+	const recommended = vuePlugin.configs["flat/recommended"]
+	const base = vuePlugin.configs["flat/base"][0]
 	return [
 		...recommended.map(c => ({
 			...c,
@@ -377,7 +377,7 @@ export function vue(opts: ResolvedOptions): Linter.Config[] {
 			]) as never,
 			languageOptions: {
 				...base?.languageOptions,
-				parser: vueParser as unknown as Linter.Parser,
+				parser: vueParser,
 				parserOptions: {
 					parser: tsParser,
 					sourceType: "module",
@@ -397,7 +397,7 @@ export function vue(opts: ResolvedOptions): Linter.Config[] {
 				"vue/comma-dangle": [ "warn",
 					"never"
 				]
-			} as unknown as Linter.RulesRecord
+			}
 		},
 		{
 			name: "alan/vue-globals",

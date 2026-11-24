@@ -373,7 +373,7 @@ export function stylistic(opts: ResolvedOptions): Linter.Config[] {
 						before: false
 					}
 				]
-			} as unknown as Linter.RulesRecord
+			}
 		}
 	]
 }

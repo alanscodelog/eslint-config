@@ -17,7 +17,7 @@ export function unusedImports(opts: ResolvedOptions): Linter.Config[] {
 						argsIgnorePattern: "^_"
 					}
 				]
-			} as unknown as Linter.RulesRecord
+			}
 		}
 	]
 }

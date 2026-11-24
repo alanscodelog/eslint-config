@@ -8,7 +8,7 @@ export function command(opts: ResolvedOptions): Linter.Config[] {
 			files: opts.globs.tsJsVue,
 			rules: {
 				"command/command": "error"
-			} as unknown as Linter.RulesRecord
+			}
 		}
 	]
 }

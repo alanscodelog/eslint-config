@@ -12,7 +12,7 @@ export function antfu(opts: ResolvedOptions): Linter.Config[] {
 				"antfu/no-import-dist": "error",
 				"antfu/no-import-node-modules-by-path": "error",
 				"antfu/top-level-function": "error"
-			} as unknown as Linter.RulesRecord
+			}
 		}
 	]
 }

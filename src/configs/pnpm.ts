@@ -39,10 +39,10 @@ const deltas = {
 			]
 		}
 	]
-} as unknown as Linter.RulesRecord
+} satisfies Linter.RulesRecord
 
 export function pnpm(_opts: ResolvedOptions): Linter.Config[] {
-	const recommended = pnpmConfigs.recommended as unknown as Linter.Config[]
+	const recommended = pnpmConfigs.recommended
 	return recommended.map(c => ({
 		...c,
 		name: "alan/pnpm",

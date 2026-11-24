@@ -3,6 +3,7 @@ import eslintComments from "@eslint-community/eslint-plugin-eslint-comments"
 import nuxt from "@nuxt/eslint-plugin"
 import stylistic from "@stylistic/eslint-plugin"
 import tsPlugin from "@typescript-eslint/eslint-plugin"
+import type { TSESLint } from "@typescript-eslint/utils"
 import antfuPlugin from "eslint-plugin-antfu"
 import commandPlugin from "eslint-plugin-command"
 import { importX } from "eslint-plugin-import-x"
@@ -39,4 +40,4 @@ export const plugins = {
 	"unused-imports": unusedImports,
 	vue,
 	yaml
-} as unknown as Record<string, any>
+} as Record<string, TSESLint.FlatConfig.Plugin>

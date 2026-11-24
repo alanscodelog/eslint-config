@@ -10,7 +10,7 @@ export function eslintComments(opts: ResolvedOptions): Linter.Config[] {
 				"eslint-comments/no-aggregating-enable": "warn",
 				"eslint-comments/no-duplicate-disable": "error",
 				"eslint-comments/no-unused-enable": "error"
-			} as unknown as Linter.RulesRecord
+			}
 		}
 	]
 }

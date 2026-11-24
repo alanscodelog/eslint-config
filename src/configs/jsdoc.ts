@@ -39,7 +39,7 @@ export function jsdoc(opts: ResolvedOptions): Linter.Config[] {
 				"jsdoc/require-property-name": "warn",
 				"jsdoc/require-returns-check": "warn",
 				"jsdoc/require-yields-check": "warn"
-			} as unknown as Linter.RulesRecord
+			}
 		}
 	]
 }

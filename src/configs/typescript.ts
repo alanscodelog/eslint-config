@@ -30,7 +30,7 @@ const fixExceptions = {
 	}
 }
 
-const namingConvention = [ "warn",
+const namingConvention: Linter.RuleEntry = [ "warn",
 	{
 		selector: [
 			"default"
@@ -162,9 +162,9 @@ const namingConvention = [ "warn",
 			match: true
 		}
 	}
-] as unknown as Linter.RuleEntry
+]
 
-const explicitFunctionReturnType = [ "warn",
+const explicitFunctionReturnType: Linter.RuleEntry = [ "warn",
 	{
 		allowConciseArrowFunctionExpressionsStartingWithVoid: true,
 		allowDirectConstAssertionInArrowFunctions: true,
@@ -172,7 +172,7 @@ const explicitFunctionReturnType = [ "warn",
 		allowHigherOrderFunctions: true,
 		allowTypedFunctionExpressions: true
 	}
-] as unknown as Linter.RuleEntry
+]
 
 const typeAwareRules = {
 	"@typescript-eslint/naming-convention": namingConvention,
@@ -222,7 +222,7 @@ const typeAwareRules = {
 			considerDefaultExhaustiveForUnions: true
 		}
 	]
-} as unknown as Linter.RulesRecord
+} satisfies Linter.RulesRecord
 
 // turn these on one at a time once the codebase handles them
 //
@@ -297,11 +297,11 @@ const deltas = {
 	"@typescript-eslint/prefer-literal-enum-member": "warn",
 	"@typescript-eslint/prefer-namespace-keyword": "warn",
 	"@typescript-eslint/triple-slash-reference": "off"
-} as unknown as Linter.RulesRecord
+} satisfies Linter.RulesRecord
 
 export function typescript(opts: ResolvedOptions): Linter.Config[] {
-	const recommended = tsPlugin.configs["flat/recommended"] as unknown as Linter.Config[]
-	const eslintRecommended = tsPlugin.configs["flat/eslint-recommended"] as unknown as Linter.Config
+	const recommended = tsPlugin.configs["flat/recommended"] as Linter.Config[]
+	const eslintRecommended = tsPlugin.configs["flat/eslint-recommended"] as Linter.Config
 	const returnTypes = opts.type === "lib"
 		? {
 				"@typescript-eslint/explicit-function-return-type": explicitFunctionReturnType
@@ -336,7 +336,7 @@ export function typescript(opts: ResolvedOptions): Linter.Config[] {
 			rules: {
 				...deltas,
 				...returnTypes
-			} as unknown as Linter.RulesRecord
+			}
 		},
 		{
 			name: "alan/typescript-vue",

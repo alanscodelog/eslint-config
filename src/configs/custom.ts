@@ -5,7 +5,8 @@ export function custom(): Linter.Config[] {
 		{
 			name: "alan/custom",
 			rules: {
-				"alan/no-ai-comment-prefix": "error"
+				"alan/no-ai-comment-prefix": "error",
+				"alan/no-any-unknown-assertion": "error"
 			}
 		}
 	]

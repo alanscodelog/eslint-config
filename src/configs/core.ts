@@ -283,7 +283,7 @@ export function core(opts: ResolvedOptions): Linter.Config[] {
 						onlyEquality: false
 					}
 				]
-			} as unknown as Linter.RulesRecord
+			}
 		}
 	]
 }

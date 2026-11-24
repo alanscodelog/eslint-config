@@ -154,7 +154,7 @@ export async function nuxt(opts: ResolvedOptions): Promise<Linter.Config[]> {
 		? [{
 				name: "alan/nuxt-playground",
 				files: ["playground/**"],
-				rules: { "@typescript-eslint/explicit-function-return-type": "off" } as unknown as Linter.RulesRecord
+				rules: { "@typescript-eslint/explicit-function-return-type": "off" } satisfies Linter.RulesRecord
 			}]
 		: []
 

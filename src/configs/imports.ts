@@ -101,14 +101,14 @@ const tableRules = {
 			type: "natural"
 		}
 	]
-} as unknown as Linter.RulesRecord
+} satisfies Linter.RulesRecord
 
 const nuxtTableRules = {
 	...tableRules,
 	"perfectionist/sort-imports": [ "warn",
 		nuxtSortImportsOptions
 	]
-} as unknown as Linter.RulesRecord
+} satisfies Linter.RulesRecord
 
 const extraRules = {
 	"import-x/no-absolute-path": "error",
@@ -127,7 +127,7 @@ const extraRules = {
 			noUselessIndex: false
 		}
 	]
-} as unknown as Linter.RulesRecord
+} satisfies Linter.RulesRecord
 
 export function imports(opts: ResolvedOptions): Linter.Config[] {
 	const shared = {

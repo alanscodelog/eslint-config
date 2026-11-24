@@ -40,7 +40,7 @@ export function unicorn(opts: ResolvedOptions): Linter.Config[] {
 				"unicorn/prefer-string-starts-ends-with": "warn",
 				"unicorn/prefer-type-error": "error",
 				"unicorn/throw-new-error": "warn"
-			} as unknown as Linter.RulesRecord
+			}
 		}
 	]
 }

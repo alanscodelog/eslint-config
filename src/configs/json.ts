@@ -58,10 +58,10 @@ const deltas = {
 			pathPattern: "^files$"
 		}
 	]
-} as unknown as Linter.RulesRecord
+} satisfies Linter.RulesRecord
 
 export function json(opts: ResolvedOptions): Linter.Config[] {
-	const recommended = jsoncConfigs["flat/recommended-with-json"] as unknown as Linter.Config[]
+	const recommended = jsoncConfigs["flat/recommended-with-json"]
 	return recommended.map(c => ({
 		...c,
 		name: "alan/json",

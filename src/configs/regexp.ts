@@ -65,7 +65,7 @@ export function regexp(opts: ResolvedOptions): Linter.Config[] {
 				"regexp/simplify-set-operations": "warn",
 				"regexp/sort-flags": "warn",
 				"regexp/strict": "error"
-			} as unknown as Linter.RulesRecord
+			}
 		}
 	]
 }

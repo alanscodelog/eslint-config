@@ -1,5 +1,4 @@
 import { ESLintUtils } from "@typescript-eslint/utils"
-import type { Rule } from "eslint"
 
 export const noAiCommentPrefix = ESLintUtils.RuleCreator.withoutDocs({
 	meta: {
@@ -22,4 +21,4 @@ export const noAiCommentPrefix = ESLintUtils.RuleCreator.withoutDocs({
 
 		return {}
 	}
-}) as unknown as Rule.RuleModule
+})
