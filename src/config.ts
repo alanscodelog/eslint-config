@@ -6,6 +6,7 @@ import { antfu } from "./configs/antfu.js"
 import { base } from "./configs/base.js"
 import { command } from "./configs/command.js"
 import { core } from "./configs/core.js"
+import { custom } from "./configs/custom.js"
 import { e18e } from "./configs/e18e.js"
 import { eslintComments } from "./configs/eslintComments.js"
 import { ignores } from "./configs/ignores.js"
@@ -40,6 +41,7 @@ export async function createConfig(
 		...ignores(opts),
 		...base(opts),
 		...core(opts),
+		...custom(),
 		...typescript(opts),
 		...stylistic(opts),
 		...(opts.vue ? vue(opts) : []),

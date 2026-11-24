@@ -16,6 +16,7 @@ import unicorn from "eslint-plugin-unicorn"
 import unusedImports from "eslint-plugin-unused-imports"
 import vue from "eslint-plugin-vue"
 import yaml from "eslint-plugin-yml"
+import { localRules } from "./rules/index.js"
 
 export const plugins = {
 	"@typescript-eslint": tsPlugin,
@@ -25,6 +26,7 @@ export const plugins = {
 	e18e,
 	"eslint-comments": eslintComments,
 	"@eslint-community/eslint-comments": eslintComments,
+	alan: localRules,
 	"import-x": importX,
 	jsdoc: jsdocPlugin,
 	jsonc,
