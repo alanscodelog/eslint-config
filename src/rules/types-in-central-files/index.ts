@@ -1,64 +1,9 @@
 import { AST_NODE_TYPES, ESLintUtils } from "@typescript-eslint/utils"
 import type { TSESTree } from "@typescript-eslint/utils"
 import path from "node:path"
-
-function globToRegExp(glob: string): RegExp {
-	let pattern = ""
-	const normalized = glob.replace(/\\/g, "/")
-
-	for (let index = 0; index < normalized.length; index++) {
-		const character = normalized[index]
-
-		if (character === "*") {
-			if (normalized[index + 1] === "*") {
-				index++
-
-				if (normalized[index + 1] === "/") {
-					index++
-					pattern += "(?:[^/]+/)*"
-				} else {
-					pattern += ".*"
-				}
-			} else {
-				pattern += "[^/]*"
-			}
-		} else if (character === "?") {
-			pattern += "[^/]"
-		} else {
-			pattern += character.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
-		}
-	}
-
-	return new RegExp(`^${pattern}$`)
-}
-
-function matchesAny(filePath: string, globs: string[]): boolean {
-	for (const glob of globs) {
-		if (globToRegExp(glob).test(filePath)) return true
-	}
-
-	return false
-}
-
-function isInAmbientModule(node: TSESTree.Node): boolean {
-	for (let parent = node.parent; parent; parent = parent.parent) {
-		if (
-			parent.type === AST_NODE_TYPES.TSModuleDeclaration
-			&& parent.declare
-			&& (parent.kind === "global" || parent.kind === "module")
-		) return true
-	}
-
-	return false
-}
-
-function isTypeReexport(node: TSESTree.ExportNamedDeclaration): boolean {
-	return node.source !== null
-		&& (
-			node.exportKind === "type"
-			|| node.specifiers.some(specifier => specifier.exportKind === "type")
-		)
-}
+import { matchesAnyGlob } from "../shared/matchesAnyGlob.js"
+import { isInAmbientModule } from "./isInAmbientModule.js"
+import { isTypeReexport } from "./isTypeReexport.js"
 
 export const typesInCentralFiles = ESLintUtils.RuleCreator.withoutDocs({
 	meta: {
@@ -105,8 +50,8 @@ export const typesInCentralFiles = ESLintUtils.RuleCreator.withoutDocs({
 
 		if (filePath.endsWith(".d.ts")) return {}
 
-		const typesAllowed = matchesAny(filePath, typesGlobs)
-		const indexAllowed = matchesAny(filePath, indexGlobs)
+		const typesAllowed = matchesAnyGlob(filePath, typesGlobs)
+		const indexAllowed = matchesAnyGlob(filePath, indexGlobs)
 
 		const report = (node: TSESTree.Node) => {
 			if (isInAmbientModule(node)) return

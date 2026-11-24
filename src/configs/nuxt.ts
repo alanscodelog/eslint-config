@@ -1,3 +1,4 @@
+/* eslint-disable alan/one-function-per-file */
 import type { Linter } from "eslint"
 import fs from "node:fs"
 import path, { posix } from "node:path"

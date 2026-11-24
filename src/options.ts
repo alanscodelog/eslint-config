@@ -40,21 +40,15 @@ export const defaultGlobs = {
 	]
 } satisfies GlobsConfig
 
-function isFile(target: string) {
-	try {
-		return fs.statSync(target).isFile()
-	} catch {
-		return false
-	}
-}
-
 export function resolveOptions(options: ConfigOptions = {}) {
 	const rootPath = process.cwd()
 	const hasNuxtConfig = NUXT_CONFIG_EXTENSIONS.some(ext => fs.existsSync(path.join(rootPath, `nuxt.config.${ext}`)))
 	const hasPlaygroundNuxtConfig = NUXT_CONFIG_EXTENSIONS.some(ext => fs.existsSync(path.join(rootPath, "playground", `nuxt.config.${ext}`)))
 	const defaultOxlintPath = path.join(rootPath, ".oxlintrc.json")
 
-	const looksLikeModule = !hasNuxtConfig && isFile(path.join(rootPath, "src/module.ts"))
+	const modulePath = path.join(rootPath, "src/module.ts")
+	const isModuleFile = fs.statSync(modulePath, { throwIfNoEntry: false })?.isFile() ?? false
+	const looksLikeModule = !hasNuxtConfig && isModuleFile
 	const resolvedIsNuxt = options.isNuxt ?? hasNuxtConfig
 
 	/*
