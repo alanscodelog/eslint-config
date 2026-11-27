@@ -161,6 +161,7 @@ export function imports(opts: ResolvedOptions): Linter.Config[] {
 					conditionNames: ["import", "require", "node", "default"],
 					project: [
 						"tsconfig.json",
+						...(opts.isNuxt ? [".nuxt/tsconfig.*.json"] : []),
 						...(opts.isNuxtModule ? ["playground/.nuxt/tsconfig.*.json"] : [])
 					],
 					noWarnOnMultipleProjects: true
